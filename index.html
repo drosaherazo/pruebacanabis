@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulario Canabis</title>
+    <meta charset="UTF-8" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+      body {
+        background-color: #00bab3;
+        font-family: "Roboto", sans-serif;
+        max-width: 600px;
+        margin: auto;
+      }
+      label {
+        font-size: 14px;
+      }
+      .container {
+        margin-top: 12px;
+        background-color: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        padding: 24px;
+        padding-top: 22px;
+        position: relative;
+      }
+      #pop_up {
+        z-index: 2;
+        visibility: hidden;
+        position: fixed;
+        background-color: transparent;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        transition: background-color 1s ease;
+      }
+      .close_button {
+        position: relative;
+        float: right;
+        background-color: transparent;
+        border: none;
+        font-size: 1.5rem;
+        font-weight: bolder;
+        cursor: pointer;
+      }
+      .container_respuesta {
+        max-width: 530px;
+        height: auto;
+        background-color: white;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+          0 6px 6px rgba(0, 0, 0, 0.23);
+        margin: auto;
+        vertical-align: middle;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        margin-top: 10%;
+        text-align: center;
+      }
+      .q_title {
+        font-size: 16px;
+        display: block;
+        line-height: 24px;
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+      .submit {
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        font-size: 1.2em;
+        font-weight: 400;
+        background-color: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: box-shadow 1s ease;
+      }
+      .submit:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+          0 6px 6px rgba(0, 0, 0, 0.23);
+      }
+    </style>
+    <script>
+      function response() {
+        let respuesta1 = document.getElementsByName("pregunta1");
+        let respuesta2 = document.getElementsByName("pregunta2");
+        let respuesta3 = document.getElementsByName("pregunta3");
+        let respuesta4 = document.getElementsByName("pregunta4");
+        let respuesta5 = document.getElementsByName("pregunta5");
+        let respuesta6 = document.getElementsByName("pregunta6");
+        let respuesta7 = document.getElementsByName("pregunta7");
+        let respuesta8 = document.getElementsByName("pregunta8");
+
+        let respuesta = [
+          respuesta1,
+          respuesta2,
+          respuesta3,
+          respuesta4,
+          respuesta5,
+          respuesta6,
+          respuesta7,
+          respuesta8,
+        ];
+
+        let total = 0;
+
+        for (let i = 0; i < respuesta.length; i++) {
+          console.log(respuesta[i].length);
+          for (let j = 0; j < respuesta[i].length; j++) {
+            respuesta[i][j].checked
+              ? (total += parseInt(respuesta[i][j].value))
+              : console.log("O");
+          }
+        }
+
+        document.getElementById("respuesta").innerHTML = total;
+
+        document.getElementById("pop_up").style.visibility = "visible";
+        document.getElementById("pop_up").style.backgroundColor =
+          "rgba(0, 0, 0, 0.219)";
+      }
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <h1>Prueba de Trastorno por Uso de Cannabis (CUDIT-R)</h1>
+        <p>
+          Responda las siguientes preguntas sobre su consumo de cannabis.
+          Seleccione la respuesta más correcta para usted en relación con su
+          consumo de cannabis en los últimos seis meses. Este cuestionario fue
+          diseñado para la autoadministración y se califica sumando cada uno de
+          los 8 ítems. Las preguntas 1-7 se califican en una escala de 0-4. La
+          pregunta 8 se califica con 0, 2 o 4.
+        </p>
+      </div>
+    </header>
+    <main>
+      <div id="pop_up">
+        <div class="container_respuesta">
+          <button
+            type="button"
+            class="close_button"
+            onclick="document.getElementById('pop_up').style.visibility = 'hidden'"
+          >
+            X
+          </button>
+          <h3 id="respuesta">asdf</h3>
+        </div>
+      </div>
+      <div class="container">
+        <span class="q_title">1. ¿Con qué frecuencia consume cannabis?*</span>
+        <input type="radio" id="" name="pregunta1" value="0" />
+        <label for="primera">Nunca</label><br />
+        <input type="radio" id="" name="pregunta1" value="1" />
+        <label for="primera">Mensual o menos</label><br />
+        <input type="radio" id="" name="pregunta1" value="2" />
+        <label for="primera">2-4 veces al mes</label><br />
+        <input type="radio" id="" name="pregunta1" value="3" />
+        <label for="primera">2-3 veces por semana</label><br />
+      </div>
+      <div class="container">
+        <span class="q_title">
+          2. ¿Cuántas horas estuvo “colocado” en un día normal cuando consumía
+          cannabis?
+        </span>
+        <input type="radio" id="" name="pregunta2" value="0" />
+        <label for="primera">Menos de 1</label><br />
+        <input type="radio" id="" name="pregunta2" value="1" />
+        <label for="primera">1 o 2</label><br />
+        <input type="radio" id="" name="pregunta2" value="2" />
+        <label for="primera">3 o 4 </label><br />
+        <input type="radio" id="" name="pregunta2" value="3" />
+        <label for="primera">5 o 6</label><br />
+        <input type="radio" id="" name="pregunta2" value="4" />
+        <label for="primera">7 o más</label><br />
+      </div>
+      <div class="container">
+        <span class="q_title">
+          3. ¿Con qué frecuencia durante los últimos 6 meses descubrió que no podía
+          dejar de consumir cannabis una vez que había comenzado?
+        </span>
+        <input type="radio" id="" name="pregunta3" value="0" />
+        <label for="primera">Nunca</label><br />
+        <input type="radio" id="" name="pregunta3" value="1" />
+        <label for="primera">Menos de mensual</label><br />
+        <input type="radio" id="" name="pregunta3" value="2" />
+        <label for="primera">Mensual</label><br />
+        <input type="radio" id="" name="pregunta3" value="3" />
+        <label for="primera">Semanal</label><br />
+        <input type="radio" id="" name="pregunta3" value="4" />
+        <label for="primera">Diario o casi diario</label><br />
+      </div>
+      <div class="container">
+        <span class="q_title">
+          4. ¿Con qué frecuencia durante los últimos 6 meses dejó de hacer lo que
+          normalmente se esperaba de usted debido al consumo de cannabis?
+        </span>
+        <input type="radio" id="" name="pregunta4" value="0" />
+        <label for="primera">Nunca</label><br />
+        <input type="radio" id="" name="pregunta4" value="1" />
+        <label for="primera">Menos de mensual</label><br />
+        <input type="radio" id="" name="pregunta4" value="2" />
+        <label for="primera">Mensual</label><br />
+        <input type="radio" id="" name="pregunta4" value="3" />
+        <label for="primera">Semanal</label><br />
+        <input type="radio" id="" name="pregunta4" value="4" />
+        <label for="primera">Diario o casi diario</label><br />
+      </div>
+      <div class="container">
+        <span class="q_title">
+          5. ¿Con qué frecuencia en los últimos 6 meses ha dedicado una gran parte
+          de su tiempo a obtener, usar o recuperarse del cannabis?
+        </span>
+        <input type="radio" id="" name="pregunta5" value="0" />
+        <label for="primera">Nunca</label><br />
+        <input type="radio" id="" name="pregunta5" value="1" />
+        <label for="primera">Menos de mensual</label><br />
+        <input type="radio" id="" name="pregunta5" value="2" />
+        <label for="primera">Mensual</label><br />
+        <input type="radio" id="" name="pregunta5" value="3" />
+        <label for="primera">Semanal</label><br />
+        <input type="radio" id="" name="pregunta5" value="4" />
+        <label for="primera">Diario o casi diario</label><br />
+      </div>
+      <div class="container">
+        <span class="q_title">
+          6. ¿Con qué frecuencia durante los últimos 6 meses ha tenido problemas de
+          memoria o de concentración después de consumir cannabis?
+        </span>
+        <input type="radio" id="" name="pregunta6" value="0" />
+        <label for="primera">Nunca</label><br />
+        <input type="radio" id="" name="pregunta6" value="1" />
+        <label for="primera">Menos de mensual</label><br />
+        <input type="radio" id="" name="pregunta6" value="2" />
+        <label for="primera">Mensual</label><br />
+        <input type="radio" id="" name="pregunta6" value="3" />
+        <label for="primera">Semanal</label><br />
+        <input type="radio" id="" name="pregunta6" value="4" />
+        <label for="primera">Diario o casi diario</label><br />
+      </div>
+      <div class="container">
+        <span class="q_title">
+          7. ¿Con qué frecuencia consume cannabis en situaciones que podrían ser
+          físicamente peligrosas, como conducir, manejar maquinaria o cuidar
+          niños?
+        </span>
+        <input type="radio" id="" name="pregunta7" value="0" />
+        <label for="primera">Nunca</label><br />
+        <input type="radio" id="" name="pregunta7" value="1" />
+        <label for="primera">Menos de mensual</label><br />
+        <input type="radio" id="" name="pregunta7" value="2" />
+        <label for="primera">Mensual</label><br />
+        <input type="radio" id="" name="pregunta7" value="3" />
+        <label for="primera">Semanal</label><br />
+        <input type="radio" id="" name="pregunta7" value="4" />
+        <label for="primera">Diario o casi diario</label><br />
+      </div>
+      <div class="container">
+        <span class="q_title">
+          8. ¿Con qué frecuencia consume cannabis en situaciones que podrían ser
+          físicamente peligrosas, como conducir, manejar maquinaria o cuidar
+          niños?
+        </span>
+        <input type="radio" id="" name="pregunta8" value="0" />
+        <label for="primera">Nunca</label><br />
+        <input type="radio" id="" name="pregunta8" value="2" />
+        <label for="primera">Sí, pero no en los últimos 6 meses</label><br />
+        <input type="radio" id="" name="pregunta8" value="6" />
+        <label for="primera">Sí, durante los últimos 6 meses</label><br />
+      </div>
+      <button type="button" class="submit" onclick="response()">
+        Ver resultado
+      </button>
+    </main>
+    <footer></footer>
+  </body>
+</html>
