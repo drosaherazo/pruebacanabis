@@ -35,7 +35,7 @@ function response() {
       } else if (total >= 12){
         ans = 'Posible trastorno de uso del cannabis'
       } else {
-        ans = 'none'
+        ans = 'No indica consumo peligroso de canabis'
       }
 
     }
