@@ -3,124 +3,8 @@
   <head>
     <title>Formulario Canabis</title>
     <meta charset="UTF-8" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-      body {
-        background-color: #00bab3;
-        font-family: "Roboto", sans-serif;
-        max-width: 600px;
-        margin: auto;
-      }
-      label {
-        font-size: 14px;
-      }
-      .container {
-        margin-top: 12px;
-        background-color: #fff;
-        border: 1px solid #dadce0;
-        border-radius: 8px;
-        margin-bottom: 12px;
-        padding: 24px;
-        padding-top: 22px;
-        position: relative;
-      }
-      #pop_up {
-        z-index: 2;
-        visibility: hidden;
-        position: fixed;
-        background-color: transparent;
-        width: 100vw;
-        height: 100vh;
-        left: 0;
-        top: 0;
-        transition: background-color 1s ease;
-      }
-      .close_button {
-        position: relative;
-        float: right;
-        background-color: transparent;
-        border: none;
-        font-size: 1.5rem;
-        font-weight: bolder;
-        cursor: pointer;
-      }
-      .container_respuesta {
-        max-width: 530px;
-        height: auto;
-        background-color: white;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-          0 6px 6px rgba(0, 0, 0, 0.23);
-        margin: auto;
-        vertical-align: middle;
-        padding: 1.5rem;
-        border-radius: 1rem;
-        margin-top: 10%;
-        text-align: center;
-      }
-      .q_title {
-        font-size: 16px;
-        display: block;
-        line-height: 24px;
-        margin-bottom: 1rem;
-        font-weight: 400;
-      }
-      .submit {
-        width: 100%;
-        margin-bottom: 2rem;
-        padding: 1rem;
-        font-size: 1.2em;
-        font-weight: 400;
-        background-color: #fff;
-        border: 1px solid #dadce0;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: box-shadow 1s ease;
-      }
-      .submit:hover {
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-          0 6px 6px rgba(0, 0, 0, 0.23);
-      }
-    </style>
-    <script>
-      function response() {
-        let respuesta1 = document.getElementsByName("pregunta1");
-        let respuesta2 = document.getElementsByName("pregunta2");
-        let respuesta3 = document.getElementsByName("pregunta3");
-        let respuesta4 = document.getElementsByName("pregunta4");
-        let respuesta5 = document.getElementsByName("pregunta5");
-        let respuesta6 = document.getElementsByName("pregunta6");
-        let respuesta7 = document.getElementsByName("pregunta7");
-        let respuesta8 = document.getElementsByName("pregunta8");
-
-        let respuesta = [
-          respuesta1,
-          respuesta2,
-          respuesta3,
-          respuesta4,
-          respuesta5,
-          respuesta6,
-          respuesta7,
-          respuesta8,
-        ];
-
-        let total = 0;
-
-        for (let i = 0; i < respuesta.length; i++) {
-          console.log(respuesta[i].length);
-          for (let j = 0; j < respuesta[i].length; j++) {
-            respuesta[i][j].checked
-              ? (total += parseInt(respuesta[i][j].value))
-              : console.log("O");
-          }
-        }
-
-        document.getElementById("respuesta").innerHTML = total;
-
-        document.getElementById("pop_up").style.visibility = "visible";
-        document.getElementById("pop_up").style.backgroundColor =
-          "rgba(0, 0, 0, 0.219)";
-      }
-    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
   </head>
 
   <body>
@@ -147,7 +31,10 @@
           >
             X
           </button>
-          <h3 id="respuesta">asdf</h3>
+          <div class="ans_container">
+            <h3 id="respuesta"></h3>
+            <h3 id="finalAns"></h3>
+          </div>
         </div>
       </div>
       <div class="container">
@@ -163,7 +50,7 @@
       </div>
       <div class="container">
         <span class="q_title">
-          2. ¿Cuántas horas estuvo “colocado” en un día normal cuando consumía
+          2. ¿Cuántas horas estuvo “trabado” en un día normal cuando consumía
           cannabis?
         </span>
         <input type="radio" id="" name="pregunta2" value="0" />
@@ -260,9 +147,7 @@
       </div>
       <div class="container">
         <span class="q_title">
-          8. ¿Con qué frecuencia consume cannabis en situaciones que podrían ser
-          físicamente peligrosas, como conducir, manejar maquinaria o cuidar
-          niños?
+          8. ¿Alguna vez ha considerado disminuir o parar su consumo de canabis?
         </span>
         <input type="radio" id="" name="pregunta8" value="0" />
         <label for="primera">Nunca</label><br />
